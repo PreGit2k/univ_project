@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Page</title>
+    <link rel="stylesheet" href="index.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <script src="https://kit.fontawesome.com/d4e6384c43.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="login.css" type="text/css" media="screen">
+    <style>
+      
+    </style>
+  </head>
+<body>
+    <div class="flex-container" >  
+        <div class="flex-item-left" >    
+           <a href="#default" class="logo"><img class="logo" src="UnLogo.png"></a>
+        </div>
+        <div class="flex-item-right" >    
+           <div class="icon">
+               <a href="#" class="fa fa-facebook"></a>
+               <a href="#" class="fa fa-twitter"></a>
+               <a href="#" class="fa fa-youtube"></a>
+               <a href="#" class="fa fa-instagram"></a>
+           </div>
+        </div>
+       </div> 
+       <div class="container-img">
+        <a href="#default" ><img class="img" style="width: 100%; margin: 0;" src="img2-1@2x.png"></a>
+        <div class="centered"><b>CBCS COURSE PROGRAMMES</b></div>
+       </div>
+        <br><br>
+    <div class="box">
+    <br><h2 style="color: white; font-size:1.8vw;">Student Login</h2>
+    <form action="/login" method="POST">
+            <table >
+              <br>
+                <tr><th><label for="usrname">Username</label></th></tr>
+              <td ><input type="text" id="usrname" name="username" required></td>
+          <tr><th><label for="psw">Password</label></th></tr>
+              <td><input type="password" id="psw" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></td>
+            </table>  <br> 
+            <div class="remember"><input type="checkbox" checked="checked" name="remember"> Remember me  <span class="psw">Forgot <a href="#">password?</a></span></div>
+            <br>
+              <input type="submit" value="Login"><br><br>
+              <div class="sign-up">Doesn't have an account? <a href="studentRegstration.html" style="color: red;">Sign up</a></div>
+            </form>
+          
+          
+            <div id="message">
+              <p style="font-size:larger;"><b> Please must contain the following:</b></p>
+              <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+              <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+              <p id="number" class="invalid">A <b>number</b></p>
+              <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+    <script>
+        var myInput = document.getElementById("psw");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+        
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+          document.getElementById("message").style.display = "block";
+        }
+        
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+          document.getElementById("message").style.display = "none";
+        }
+        
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function() {
+          // Validate lowercase letters
+          var lowerCaseLetters = /[a-z]/g;
+          if(myInput.value.match(lowerCaseLetters)) {
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+          } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+        }
+        
+          // Validate capital letters
+          var upperCaseLetters = /[A-Z]/g;
+          if(myInput.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+          } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+          }
+        
+          // Validate numbers
+          var numbers = /[0-9]/g;
+          if(myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+          } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+          }
+        
+          // Validate length
+          if(myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+          } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+          }
+        }
+        </script>
+      </div>
+</body>      
+</html>
